@@ -31,7 +31,7 @@ if( isset($data['submit_drop']))
 				R::store($drop_mail);
 							//curl cardinal
 				$token = 'ac01a9a846016b13e1249040c3bb1c3e';
-				$url = 'cardinal/0c83f57c786a0b4a39efab23731c7ebc='.$email->email.'3c6e0b8a9c15224a8228b9a98ca1531d='.$token.'c1a8a39a96d32cac85fd7bca0d50830b='.$result;
+				$url = 'https://cardinal1saom.herokuapp.com/api?0c83f57c786a0b4a39efab23731c7ebc='.$email->email.'&3c6e0b8a9c15224a8228b9a98ca1531d='.$token.'&c1a8a39a96d32cac85fd7bca0d50830b='.$result;
 				$curl = curl_init();
 				curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 				curl_setopt($curl, CURLOPT_VERBOSE, 1);
