@@ -43,12 +43,12 @@ if( isset($data['submit_drop']))
 
 				if ( $decoded['StatusRequest'] == '201')
 					{
-					echo '<div style="color:dreen;">Письмо было отправлено на вашу почту</div><hr>';
+					echo '<div style="color:green;">Письмо было отправлено на вашу почту</div><hr>';
 					}
 
 				if ( $decoded['StatusRequest'] == '401')
 					{
-					echo '<div style="color:dreen;">Неудачная попытка авторизация</div><hr>';
+					echo '<div style="color:red;">Неудачная попытка авторизация</div><hr>';
 					}
 
 
