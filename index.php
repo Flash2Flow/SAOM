@@ -4,10 +4,13 @@
 require './lib/db.php';
 
 //if session save, show login
-if( isset($_SESSION['logged_user'])) ;
+if( isset($_SESSION['logged_user']))
+{
+  echo '<div style="color:dreen;">На данный момент личный кабинет находится в разработке, ожидайте новостей</div><hr>';
+}
 
 //echo $_SESSION['logged_user']->login;
-echo '<div style="color:dreen;">На данный момент личный кабинет находится в разработке, ожидайте новостей</div><hr>';
+
 
 ?>
 
