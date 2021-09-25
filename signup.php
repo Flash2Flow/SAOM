@@ -62,7 +62,7 @@ header('Location: /');
 				$user->access_drop = '0';
 				$user->password = password_hash($data['password_1'], PASSWORD_DEFAULT);
 				R::store($user);
-					echo '<div style="color:dreen;">Вы успешно зарегистрированы!<a href="index.php">Войти</a></div><hr>';
+					echo '<div style="color:dreen;">Вы успешно зарегистрированы!<a href="join.php">Войти</a></div><hr>';
 			}else
 			{
 					echo '<div id="errors" style="color:red;">' .array_shift($errors). '</div><hr>';
