@@ -108,7 +108,7 @@ if( $drop )
             {
                 $drop->password = password_hash($data['password'], PASSWORD_DEFAULT);
                 R::store($drop);
-                echo '<div style="color:dreen;">Вы успешно сбросили пароль!<a href="join.php">Войти</a></div><hr>';
+                echo '<div style="color:dreen;">Вы успешно сбросили пароль!<a style="color:white;" href="join.php">Войти</a></div><hr>';
             }else
             {
                 echo '<div id="errors" style="color:red;">' .array_shift($errors). '</div><hr>';
