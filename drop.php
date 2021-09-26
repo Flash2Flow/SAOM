@@ -115,3 +115,70 @@ if( $drop )
             }
     }
 ?>
+
+
+
+
+
+<?php
+require './lib/db.php';
+$access_drop = $_GET["access_drop"];
+$email_url = $_GET["email"];
+$data = $_POST;
+
+if( isset($_SESSION['logged_user'])) {
+  header('Location: /');
+  }
+
+if ( $access_drop == ''  || $email_url == '')
+{
+  header('Location: /');
+}else{
+  $email = R::findOne('users', 'email = ?', $email_url);
+  if ( $email )
+  {
+    if ( $email-access_drop == $access_drop )
+    {
+      if ( $email-email == $email_url )
+      {
+        $errors = array();
+
+          if ( isset($data['submit_drop']) )
+          {
+            if ( $data['password'] == '' )
+            {
+                $errors[] = 'Введите пароль';
+            }
+    
+            if(mb_strlen($data['password']) < 3 || mb_strlen($data['password']) > 20)
+            {
+                $errors[] = "Недопустимая длина пароля";
+            }
+    
+            if (preg_match('/^[а-я].*$/i', $data['password']))
+            {
+                $errors[] = "Запрет русских символов в стране, куда лезешь?";
+            }
+    
+              if ( empty($errors) )
+              {
+                $email->password = password_hash($data['password'], PASSWORD_DEFAULT);
+                R::store($email);
+                echo '<div style="color:green;">Вы успешно сбросили пароль!<a style="color:white;" href="join.php">Войти</a></div><hr>';
+              }else
+              {
+                echo '<div id="errors" style="color:red;">' .array_shift($errors). '</div><hr>';
+              }
+          }
+
+      }
+    }else
+    {
+      header('Location: /');
+    }
+  }else
+  {
+    header('Location: /');
+  }
+}
+?>
